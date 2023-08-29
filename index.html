@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <title>iFrame Quickstart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: top;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333333;
+        }
+
+        p {
+            color: #666666;
+            line-height: 1.6;
+        }
+
+        .fa {
+            cursor: pointer;
+        }
+
+        .fa:hover {
+            color: #0056b3;
+        }
+
+        .ntf-counter {
+            top: 0px; left: 10px; text-align: center; width: 13px; height: 13px; font-size: 9px; line-height: 14px; border-radius: 100%; color: white; background: red; overflow: hidden; z-index: 1000; display: inline-block;"
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h1>iFrame Notification Center Icon Bell</h1>
+        <div id="notification-bell">
+            <i class="fa fa-bell fa-2x"></i>
+            <span id="unseen-badge"></span>
+            <p>Click on the notification bell to see the feed</p>
+        </div>
+    </div>
+    </div>
+
+
+
+    <script>
+        (function (n, o, t, i, f) {
+            n[i] = {}; var m = ['init', 'on']; n[i]._c = []; m.forEach(me => n[i][me] = function () { n[i]._c.push([me, arguments]) });
+            var elt = o.createElement(f); elt.type = "text/javascript"; elt.async = true; elt.src = t;
+            var before = o.getElementsByTagName(f)[0]; before.parentNode.insertBefore(elt, before);
+        })(window, document, 'https://embed.novu.co/embed.umd.min.js', 'novu', 'script');
+
+        novu.init(
+            '<REPLACE_APPLICATION_ID>',
+            {
+                unseenBadgeSelector: '#unseen-badge',
+                bellSelector: '#notification-bell',
+
+                position: {
+                    top: 'flex',   // Keep this empty to align with the top of the bell
+                    left: 'flex',  // Adjust this value to position the popup beside the bell
+                },
+            },
+            {
+                subscriberId: '<REPLACE_WITH_USER_UNIQUE_IDENTIFIER>',
+            }
+        );
+
+    </script>
+</body>
+
+</html>
